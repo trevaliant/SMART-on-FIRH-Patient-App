@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART on FHIR App</title>
+    <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
+</head>
+<body>
+    <h1>SMART on FHIR App</h1>
+    <div id="patient-data">Loading patient data...</div>
+
+    <script>
+        FHIR.oauth2.ready().then(function(client) {
+            client.request("Patient").then(function(patient) {
+                document.getElementById("patient-data").innerText = JSON.stringify(patient, null, 4);
+            }).catch(function(error) {
+                console.error(error);
+                document.getElementById("patient-data").innerText = "Error fetching patient data.";
+            });
+        });
+    </script>
+</body>
+</html>
+
