@@ -12,7 +12,7 @@
 
           // The client_id that you should have obtained after registering a client at
           // the EHR.
-          clientId: "my_web_app",
+            clientId: "06895d41-5937-4e83-9f3d-0af09db31c69",
 
           // The scopes that you request from the EHR. In this case we want to:
           // launch            - Get the launch context
@@ -24,7 +24,8 @@
           // (where the launchUri is), you can omit this option because the default value is
           // ".". However, some servers do not support directory indexes so "." and "./"
           // will not automatically map to the "index.html" file in that directory.
-          redirectUri: "index.html"
+          redirectUri: "index.html",
+          iss: "https://r3.smarthealthit.org"  // FHIR server base URL (SMART test server)
         });
     </script>
 </body>
